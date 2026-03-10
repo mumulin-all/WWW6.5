@@ -89,6 +89,16 @@ contract Calculator {
         return (quotient, remainder);
     }
     
+    // 增加低级调用示例
+    function calculatePowerLowLevel(uint256 _base, uint256 _exponent) public view returns (uint256) {
+        require(calculatorAddress != address(0), "Invalid calculator address");
+        (bool success, bytes memory data) = calculatorAddress.staticcall(
+            abi.encodeWithSignature("power(uint256,uint256)", _base, _exponent)
+        );
+        require(success, "Low-level call failed");
+        uint256 result = abi.decode(data, (uint256));
+        return result;  
+    }
 }
 
 /**
@@ -127,4 +137,6 @@ contract Calculator {
 
     // 或者使用
     bytes4 selector = ScientificCalculator.power.selector;
+
+todo: 如何添加事件记录
  */
