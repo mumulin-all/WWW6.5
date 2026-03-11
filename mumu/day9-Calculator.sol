@@ -133,6 +133,7 @@ contract Calculator {
 
 5. 函数选择器
     bytes4 selector = bytes4(keccak256("power(uint256,uint256)"));
+<<<<<<< HEAD
     // 结果: 0x617ec7e4； 实际是函数签名的哈希值的前4字节，用于标识函数。
 
     // 或者使用编译器提供了更简洁的方式获取函数选择器：
@@ -158,5 +159,12 @@ contract Calculator {
     bytes4 selector = ERC20.transfer.selector;
 
 
+=======
+    // 结果: 0x617ec7e4
+
+    // 或者使用
+    bytes4 selector = ScientificCalculator.power.selector;
+
+>>>>>>> upstream/master
 todo: 如何添加事件记录
  */
