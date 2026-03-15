@@ -17,8 +17,8 @@ abstract contract BaseDepositBox is IDepositBox{
         _;
     }
 
-    constructor(){
-        owner = msg.sender;
+    constructor(address _owner){
+        owner = _owner;
         depositTime = block.timestamp;
     }
 
